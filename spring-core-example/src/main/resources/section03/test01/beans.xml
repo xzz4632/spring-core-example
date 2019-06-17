@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean class="com.xzz.chaper01.section03.TestServiceImpl"></bean>
+	<bean class="com.xzz.chaper01.section03.test01.TestServiceImpl"></bean>
 
 </beans>

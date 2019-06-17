@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xzz.chaper01.section03;
+package com.xzz.chaper01.section03.test01;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
