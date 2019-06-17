@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- name可以定义多个名称, 可用空格 分号 逗号 -->
+	<bean id="account" name="myAccount account1; account2, account3" class="com.xzz.chaper01.section03.test02.Account">
+		<property name="name" value="xzz"></property>
+	</bean>
+	
+	
+	<!-- 定义bean的别名 -->
+	<alias name="account" alias="account8"/>
+	
+	
+	<bean class="com.xzz.chaper01.section03.test02.Account$Address">
+		<property name="address" value="武汉"></property>
+	</bean>
+
+</beans>
