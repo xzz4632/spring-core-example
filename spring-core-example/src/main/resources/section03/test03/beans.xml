@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 通过构造方法实例化bean -->
+	<!-- 此时如果不提供默认构造方法, 则会抛出BeanInstantiationException -->
+	<bean id="person" class="com.xzz.chaper01.section03.test03.Person"></bean>
+	
+	<!-- 通过静态工厂方法实例化, getInstance必须是一个静态方法 -->
+	<bean id="person1" class="com.xzz.chaper01.section03.test03.Person" factory-method="getInstance"></bean>
+
+	<!-- 通过实例化工厂方法实例化 -->
+	<bean id="address" factory-bean="person" factory-method="getAddr"></bean>
+
+</beans>
