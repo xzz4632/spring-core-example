@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 循环依赖 -->
+	<!-- 通过构造函数实现A和B相互注入,会引起循环依赖,抛出BeanCreationException -->
+	<!-- <bean id="beanA" class="com.xzz.chaper01.section04.test02.BeanA">
+		<constructor-arg ref="beanB"></constructor-arg>
+	</bean>
+	
+	<bean id="beanB" class="com.xzz.chaper01.section04.test02.BeanB">
+		<constructor-arg ref="beanA"></constructor-arg>
+	</bean> -->
+
+	<!-- setter方式可解决循环依赖 -->
+	<bean id="beanA" class="com.xzz.chaper01.section04.test02.BeanA">
+		<property name="beanB" ref="beanB"></property>
+	</bean>
+	
+	<bean id="beanB" class="com.xzz.chaper01.section04.test02.BeanB">
+		<property name="beanA" ref="beanA"></property>
+	</bean>
+
+</beans>
