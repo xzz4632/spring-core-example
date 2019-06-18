@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+    <!-- 依赖注入各种示例 -->
+    <bean id="address" class="com.xzz.chaper01.section04.test03.Address">
+    	<property name="addrName" value="深圳"/>
+    </bean>
+
+	<bean id="person0" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="name" value="xzz0"/>
+		<property name="age" value="30"/>
+		<!-- 注: 对于boolean型的属性不能以is开头来命名, 这在get方法时会产生属性名解析错误 -->
+		<property name="student" value="true"/>
+		<property name="address" ref="address"></property>
+	</bean>
+	
+	<!-- p命名空间 -->
+	<bean id="person1" class="com.xzz.chaper01.section04.test03.Person"
+		p:name="xzz1"
+		p:age="30"
+		p:student="true"
+		p:address-ref="address">
+	</bean>
+	
+	<!-- java.util.Properties配置实现 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties">
+			<value>
+				com.xzz.chaper01.section04.test03.person2.name=xzz2
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="person2" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="name" value="${com.xzz.chaper01.section04.test03.person2.name}"></property>
+	</bean>
+	
+	<!-- idref元素 -->
+	<!-- 在5.1.8文档中说可以用value指定bean名称, 但实际会抛出异常String类转换为Address类异常 -->
+	<bean id="person3" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="address" ref="address">
+		</property>
+	</bean>
+	
+	<!-- 在5.1.8文档中说明idref元素在初始化容器时会验证对id的bean是否存在,实际无效, 还有实际中使用idref注入抛出类型转换异常 -->
+	<bean id="person4" class="com.xzz.chaper01.section04.test03.Person">
+		<!-- <property name="address">
+			<idref bean="address"/>
+		</property> -->
+	</bean>
+	
+	<!-- ref元素 -->
+	<bean id="person5" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="address">
+			<ref bean="address2"/>
+		</property>
+	</bean>
+	
+	
+	<!-- 内部bean -->
+	<bean id="person6" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="address">
+			<bean class="com.xzz.chaper01.section04.test03.Address">
+				<property name="addrName" value="湖北"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- c命名空间 -->
+	<bean id="person7" class="com.xzz.chaper01.section04.test03.Person"
+		c:name="xzz7"
+		c:age="25"
+		c:student="true"
+		c:address-ref="address"></bean>
+		
+	<bean id="person8" class="com.xzz.chaper01.section04.test03.Person"
+		c:_0="xzz8"
+		c:_1="25"
+		c:_2="true"
+		c:_3-ref="address"></bean>
+	
+	
+	<!-- 复合属性 -->
+	<bean id="person9" class="com.xzz.chaper01.section04.test03.Person">
+		<property name="address.addrName" value="四川"></property>
+	</bean>
+</beans>
