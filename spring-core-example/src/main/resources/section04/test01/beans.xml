@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="job" class="com.xzz.chaper01.section04.test01.Job"></bean>
+
+	<bean id="address" class="com.xzz.chaper01.section04.test01.Address"></bean>
+	
+	<!-- 构造函数注入方式  start-->
+	<!-- 构造函数的参数类型不冲突 -->
+	<bean id="person" class="com.xzz.chaper01.section04.test01.Person">
+		<constructor-arg ref="address"></constructor-arg>
+		<constructor-arg ref="job"></constructor-arg>
+	</bean>
+	
+	<!-- 构造函数的参数类型有歧义, 即多个基本类型或String-->
+	<!-- 通过type属性, 注意String为全限定类名 -->
+	<bean id="person1" class="com.xzz.chaper01.section04.test01.Person">
+		<constructor-arg type="int" value="10"></constructor-arg>
+		<constructor-arg type="java.lang.String" value="xzz1"></constructor-arg>
+	</bean>
+	
+	<!-- 通过name属性-->
+	<bean id="person2" class="com.xzz.chaper01.section04.test01.Person">
+		<constructor-arg name="age" value="10"></constructor-arg>
+		<constructor-arg name="name" value="xzz2"></constructor-arg>
+	</bean>
+	
+	<!-- 通过index属性-->
+	<bean id="person3" class="com.xzz.chaper01.section04.test01.Person">
+		<constructor-arg index="1" value="10"></constructor-arg>
+		<constructor-arg index="0" value="xzz3"></constructor-arg>
+	</bean>
+	
+	<!-- 构造函数注入方式  end-->
+	
+	<!-- setter注入 -->
+	<bean id="person4" class="com.xzz.chaper01.section04.test01.Person">
+		<property name="address" ref="address"></property>
+		<property name="job" ref="job"></property>
+		<property name="name" value="xzz4"></property>
+		<property name="age" value="10"></property>
+	</bean>
+
+</beans>
