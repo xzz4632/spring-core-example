@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/aop 
+        https://www.springframework.org/schema/aop/spring-aop.xsd 
+        http://www.springframework.org/schema/context 
+        https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- person bean的属性会被覆盖 -->
+	<bean id="person" class="com.xzz.chaper01.section08.test02.Person">
+		<property name="name" value="zs"></property>
+		<property name="age" value="30"></property>
+	</bean>
+	
+	<!-- person1 bean的属性不会被覆盖 -->
+	<bean id="person1" class="com.xzz.chaper01.section08.test02.Person">
+		<property name="name" value="zs"></property>
+		<property name="age" value="30"></property>
+	</bean>
+	
+	<context:property-override location="chapter01/section08/test02/override.properties"/>
+
+</beans>
