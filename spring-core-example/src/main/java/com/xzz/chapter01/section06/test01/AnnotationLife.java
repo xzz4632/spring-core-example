@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xzz.chaper01.section06.test01;
+package com.xzz.chapter01.section06.test01;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section03.test02;
+package com.xzz.chapter01.section03.test02;
 
 public class Account {
 

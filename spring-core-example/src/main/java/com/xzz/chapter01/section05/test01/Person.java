@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section05.test01;
+package com.xzz.chapter01.section05.test01;
 
 public class Person {
 

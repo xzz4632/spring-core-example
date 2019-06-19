@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section04.test02;
+package com.xzz.chapter01.section04.test02;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

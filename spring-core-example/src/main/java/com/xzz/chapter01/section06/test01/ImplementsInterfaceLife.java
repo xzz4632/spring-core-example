@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section06.test01;
+package com.xzz.chapter01.section06.test01;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;

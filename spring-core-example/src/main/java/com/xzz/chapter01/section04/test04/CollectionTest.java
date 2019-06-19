@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section04.test04;
+package com.xzz.chapter01.section04.test04;
 
 import java.util.List;
 import java.util.Map;

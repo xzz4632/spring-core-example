@@ -1,8 +1,8 @@
-package com.xzz.chaper01.section03.test02;
+package com.xzz.chapter01.section03.test02;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.xzz.chaper01.section03.test02.Account.Address;
+import com.xzz.chapter01.section03.test02.Account.Address;
 
 /**
  * 

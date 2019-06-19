@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section03.test03;
+package com.xzz.chapter01.section03.test03;
 
 public class Address {
 

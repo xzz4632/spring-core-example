@@ -1,4 +1,4 @@
-package com.xzz.chaper01.section08.test01;
+package com.xzz.chapter01.section08.test01;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
