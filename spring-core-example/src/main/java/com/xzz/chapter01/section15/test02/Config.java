@@ -23,4 +23,9 @@ public class Config {
 	public BlackListNotifier blackListNotifier() {
 		return new BlackListNotifier();
 	}
+	
+	@Bean
+	public BlackListNotifier2 blackListNotifier2() {
+		return new BlackListNotifier2();
+	}
 }

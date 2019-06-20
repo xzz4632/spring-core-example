@@ -1,13 +1,14 @@
 package com.xzz.chapter01.section15.test02;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.core.Ordered;
 
 /**
  * 实现ApplicationListener
  * 通过其泛型参数定义监听的事件的具体类型
  * 
  */
-public class BlackListNotifier implements ApplicationListener<BlackListEvent> {
+public class BlackListNotifier implements ApplicationListener<BlackListEvent>, Ordered {
 
 	private String notificationAddress;
 	
@@ -17,12 +18,10 @@ public class BlackListNotifier implements ApplicationListener<BlackListEvent> {
 		
 		System.out.println("=========收到消息=============");
 
-		try {
-			Thread.sleep(20000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { Thread.sleep(20000L); } catch (InterruptedException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 		System.out.println(event);
 	}
 	
@@ -32,6 +31,12 @@ public class BlackListNotifier implements ApplicationListener<BlackListEvent> {
 	
 	public String getNotificationAddress() {
 		return this.notificationAddress;
+	}
+
+	@Override
+	public int getOrder() {
+		
+		return 43;
 	}
 
 }
