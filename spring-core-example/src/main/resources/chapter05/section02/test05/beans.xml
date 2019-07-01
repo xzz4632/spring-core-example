@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 启动aop支持 -->
+	<aop:aspectj-autoproxy />
+
+	<!-- 声明切面 -->
+	<bean id="aspect05"
+		class="com.xzz.chapter05.section02.test05.Aspect05"></bean>
+	<aop:config>
+		<aop:aspect id="aspect05" ref="aspect05">
+			<aop:pointcut expression="execution(String com.xzz.chapter05.section02.test05.Service05.*(String))" id="accountService"/>
+			<!-- <aop:before method="before" pointcut="execution(String com.xzz.chapter05.section02.test05.Service05.*(String))" /> -->
+			<aop:before method="before" pointcut-ref="accountService"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- <aop:config>
+		<aop:pointcut expression="execution(String com.xzz.chapter05.section02.test05.Service05.*(String))" id="accountService"/>
+	</aop:config> -->
+
+
+</beans>
